@@ -1,0 +1,6 @@
+usr/local/bin/helpico-qt usr/bin
+share/pixmaps/helpico32.xpm usr/share/pixmaps
+share/pixmaps/helpico16.xpm usr/share/pixmaps
+share/pixmaps/helpico128.png usr/share/pixmaps
+debian/helpico-qt.desktop usr/share/applications
+debian/helpico-qt.protocol usr/share/kde4/services/

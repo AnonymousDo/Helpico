@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Helpico
+Comment=Helpico P2P Cryptocurrency
+Comment[fr]=Helpico, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Helpico, eşten eşe kriptografik sanal para birimi
+Exec=helpico-qt %u
+Terminal=false
+Type=Application
+Icon=helpico128
+MimeType=x-scheme-handler/helpico;
+Categories=Office;Finance;
