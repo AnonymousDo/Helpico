@@ -1235,58 +1235,60 @@ CAmount GetBlockSubsidy(int nPrevHeight, const Consensus::Params& consensusParam
 
     if (nPrevHeight == 1) {
        return 5000000 * COIN;
-    } else if (nPrevHeight < 62560) {
+    } else if (nPrevHeight <= 29500) {
         return 0.15984654 * COIN;
-    } else if (nPrevHeight < 125120) {
-        return 0.31969309 * COIN;
-    } else if (nPrevHeight < 187680) {
-        return 0.47953964 * COIN;
-    } else if (nPrevHeight < 250240) {
-       return  0.63938618 * COIN;
-    } else if (nPrevHeight < 312800) {
-        return 0.799232735 * COIN;
-    } else if (nPrevHeight < 375360) {
-        return 0.95907928 * COIN;
-    } else if (nPrevHeight < 437920) {
-        return 1.11892583 * COIN;
-    } else if (nPrevHeight < 500480) {
-        return 1.27877237 * COIN;
-    } else if (nPrevHeight < 563040) {
-        return 1.43861892 * COIN;
-    } else if (nPrevHeight < 625600) {
-        return 1.59846547 * COIN;
-    } else if (nPrevHeight < 688160) {
-        return 1.75831202 * COIN;
-    } else if (nPrevHeight < 750720) {
-        return 1.91815856 * COIN;
-    } else if (nPrevHeight < 813280) {
-        return 2.07800511 * COIN;
-    } else if (nPrevHeight < 875840) {
-        return 2.39769821 * COIN;
-    } else if (nPrevHeight < 938400) {
-        return 2.39769821 * COIN;
-    } else if (nPrevHeight < 1000960) {
-        return 2.55754475 * COIN;
-    } else if (nPrevHeight < 1063520) {
-        return 2.7173913 * COIN;
-    } else if (nPrevHeight < 1126080) {
-        return 2.87723785 * COIN;
-    } else if (nPrevHeight < 1188640) {
-        return 3.03708439 * COIN;
-    } else if (nPrevHeight < 1251200) {
-        return 3.19693094 * COIN;
-    } else if (nPrevHeight < 1313760) {
-        return 3.35677749 * COIN;
-    } else if (nPrevHeight < 1376320) {
-        return 3.51662404 * COIN;
-    } else if (nPrevHeight < 1438880) {
-        return 3.67647058 * COIN;
-    } else if (nPrevHeight < 1501440) {
-        return 3.83631713 * COIN;
-    } else if (nPrevHeight < 1564000) {
-        return 191.8158568 * COIN;
-    } else if (nPrevHeight < 1626560) {
-        return 0.00012787 * COIN;
+    } else if (nPrevHeight < 441504) {
+        return 0.024 * COIN;
+    } else if (nPrevHeight < 883008) {
+        return 0.047953964 * COIN;
+    } else if (nPrevHeight < 1324512) {
+        return 0.071931 * COIN;
+    } else if (nPrevHeight < 1766016) {
+       return  0.095908 * COIN;
+    } else if (nPrevHeight < 2207520) {
+        return 0.119885 * COIN;
+    } else if (nPrevHeight < 2649024) {
+        return 0.143862 * COIN;
+    } else if (nPrevHeight < 3090528) {
+        return 0.167839 * COIN;
+    } else if (nPrevHeight < 3532032) {
+        return 0.191816 * COIN;
+    } else if (nPrevHeight < 3973536) {
+        return 0.215793 * COIN;
+    } else if (nPrevHeight < 4415040) {
+        return 0.239777 * COIN;
+    } else if (nPrevHeight < 4856544) {
+        return 0.263747 * COIN;
+    } else if (nPrevHeight < 5298048) {
+        return 0.287724 * COIN;
+    } else if (nPrevHeight < 5739552) {
+        return 0.311701 * COIN;
+    } else if (nPrevHeight < 5769052) {
+        return 0.359665 * COIN;
+    } else if (nPrevHeight < 6210556) {
+        return 0.359665 * COIN;
+    } else if (nPrevHeight < 6652060) {
+        return 0.383632 * COIN;
+    } else if (nPrevHeight < 7093564) {
+        return 0.407609 * COIN;
+    } else if (nPrevHeight < 7535068) {
+        return 0.431586 * COIN;
+    } else if (nPrevHeight < 8418076) {
+        return 0.455563 * COIN;
+    } else if (nPrevHeight < 8859580) {
+        return 0.47954 * COIN;
+    } else if (nPrevHeight < 9301084) {
+        return 0.503517 * COIN;
+    } else if (nPrevHeight < 9742588) {
+        return 0.51662404 * COIN;
+    } else if (nPrevHeight < 10184092) {
+        return 0.551471 * COIN;
+    } else if (nPrevHeight < 10625596) {
+        return 0.575448 * COIN;
+    } else if (nPrevHeight < 11067100) {
+        return 29 * COIN;
+    } else if (nPrevHeight < 11508604) {
+        return 0.0000001 * COIN;
     }
 
     // otherwise, business as normal..
