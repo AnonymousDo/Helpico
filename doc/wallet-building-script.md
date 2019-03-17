@@ -79,7 +79,7 @@ or you can manually do it for example here are the defaults
 	SIGNER=
 	VERSION=
 	commit=false
-	url=https://github.com/yakushevt/HelpicoProd
+	url=https://github.com/AnonymousDo/Helpico
 	proc=2
 	mem=2000
 	
@@ -104,7 +104,7 @@ example then proc is the amount of cores you want to use and mem is ram or memor
 	SIGNER=
 	VERSION=
 	commit=false
-	url=https://github.com/yakushevt/HelpicoProd
+	url=https://github.com/AnonymousDo/Helpico
 	proc=2
 	mem=2000
 

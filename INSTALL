@@ -21,7 +21,7 @@ use the autogen script to prepare the build environment.
     make
 
 Precompiled binaries are available at github, see
-https://github.com/yakushevt/HelpicoProd-binaries
+https://github.com/AnonymousDo/Helpico-binaries
 
 Always verify the signatures and checksums.
 

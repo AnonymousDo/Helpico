@@ -1,11 +1,11 @@
 ---
-name: "helpico-win-0.12"
+name: "helpico-win-1.0.1"
 enable_cache: true
 suites:
 - "trusty"
 architectures:
 - "amd64"
-packages: 
+packages:
 - "curl"
 - "g++"
 - "git-core"
