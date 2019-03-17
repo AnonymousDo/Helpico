@@ -96,7 +96,11 @@ public:
         consensus.BIP34Hash = uint256S("0x000007d91d1254d60e2dd1ae580383070a4ddffa4c64c2eeb4a2f9ecc0414343");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 20 * 60;    // every 2 blocks
-        consensus.nPowTargetSpacing = 1.5 * 60;      // 1.5 min
+        if (nPrevHeight < 29500) {
+           consensus.nPowTargetSpacing = 10 * 60; // 10 min
+        } else {
+            consensus.nPowTargetSpacing = 1.5 * 60;  // 1.5 min
+        }
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
@@ -143,10 +147,10 @@ public:
 
         assert(consensus.hashGenesisBlock == uint256S("0x0000073747eac038cbc757165dd9950b6dc47018c4113c6d7c213a2928605db5"));
         assert(genesis.hashMerkleRoot == uint256S("0x99a5cb21bf54913ebdba9c0792759ae5fd041a302182b41a977db5189b5bf78e"));
-  vSeeds.push_back(CDNSSeedData("helpicoseed1.ns-zone-anonymous.com", "helpicoseed1.ns-zone-anonymous.com"));
-  vSeeds.push_back(CDNSSeedData("helpicoseed2.ns-zone-anonymous.com", "helpicoseed2.ns-zone-anonymous.com"));
-  vSeeds.push_back(CDNSSeedData("helpicoseed3.ns-zone-anonymous.com", "helpicoseed3.ns-zone-anonymous.com"));
-  vSeeds.push_back(CDNSSeedData("helpicoseed4.ns-zone-anonymous.com", "helpicoseed4.ns-zone-anonymous.com"));
+        vSeeds.push_back(CDNSSeedData("helpicoseed1.ns-zone-anonymous.com", "helpicoseed1.ns-zone-anonymous.com"));
+        vSeeds.push_back(CDNSSeedData("helpicoseed2.ns-zone-anonymous.com", "helpicoseed2.ns-zone-anonymous.com"));
+        vSeeds.push_back(CDNSSeedData("helpicoseed3.ns-zone-anonymous.com", "helpicoseed3.ns-zone-anonymous.com"));
+        vSeeds.push_back(CDNSSeedData("helpicoseed4.ns-zone-anonymous.com", "helpicoseed4.ns-zone-anonymous.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 40);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
@@ -170,11 +174,13 @@ public:
         strSporkPubKey = "04a08dbd1a4b411660bd863fe0c497b1b0308e47715a9f0ba7853b058b53731331a6e68714fec9441c4df5ffd191e057e734bf6ca4be7f598d57eb1881f97fecb6";
 
         checkpointData = (CCheckpointData){
-            boost::assign::map_list_of(0, uint256S("0x0000073747eac038cbc757165dd9950b6dc47018c4113c6d7c213a2928605db5")),
-            1535259000, // * UNIX timestamp of last checkpoint block
-            0,    // * total number of transactions between genesis and last checkpoint
+          boost::assign::map_list_of
+               (0,     uint256S("0x0000073747eac038cbc757165dd9950b6dc47018c4113c6d7c213a2928605db5"))
+               (27800, uint256S("0x000000000000b653d81ee6a40b705ff5066546295867ad9854fe5355b81a756d")),
+            1552806735, // * UNIX timestamp of last checkpoint block
+            30670,    // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            0        // * estimated number of transactions per day after checkpoint
+            3450        // * estimated number of transactions per day after checkpoint
         };
 
         developmentAddress = "H8WMu99F1S4JbrZwus5dFS1qdbr2PQGRH5";
