@@ -189,11 +189,11 @@ then
 fi
 
 # Check for OSX SDK
-if [[ ! -e "gitian-builder/inputs/MacOSX10.9.sdk.tar.gz" && $osx == true ]]
-then
-    echo "Cannot build for OSX, SDK does not exist. Will build for other OSes"
-    osx=false
-fi
+# if [[ ! -e "gitian-builder/inputs/MacOSX10.9.sdk.tar.gz" && $osx == true ]]
+# then
+#     echo "Cannot build for OSX, SDK does not exist. Will build for other OSes"
+#     osx=false
+# fi
 
 # Get signer
 if [[ -n "$1" ]]
@@ -229,7 +229,7 @@ fi
 # Add a "v" if no -c
 if [[ $commit = false ]]
 then
-	COMMIT="v${VERSION}"
+	COMMIT="${VERSION}"
 fi
 echo "${COMMIT}"
 
@@ -281,7 +281,7 @@ then
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit helpico=${COMMIT} --url helpico=${url} ../helpico/contrib/gitian-descriptors/gitian-linux.yml
 	    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../helpico/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/helpico-*.tar.gz build/out/src/helpico-*.tar.gz ../helpico-binaries/${VERSION}
+	    mv build/out/helpico-*.tar.gz build/out/src/helpicocore-*.tar.gz ../helpico-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -291,8 +291,8 @@ then
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit helpico=${COMMIT} --url helpico=${url} ../helpico/contrib/gitian-descriptors/gitian-win.yml
 	    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../helpico/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/helpico-*-win-unsigned.tar.gz inputs/helpico-win-unsigned.tar.gz
-	    mv build/out/helpico-*.zip build/out/helpico-*.exe ../helpico-binaries/${VERSION}
+	    mv build/out/helpico-*-win-unsigned.tar.gz inputs/helpicocore-win-unsigned.tar.gz
+	    mv build/out/helpico-*.zip build/out/helpicocore-*.exe ../helpico-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -302,8 +302,8 @@ then
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit helpico=${COMMIT} --url helpico=${url} ../helpico/contrib/gitian-descriptors/gitian-osx.yml
 	    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../helpico/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/helpico-*-osx-unsigned.tar.gz inputs/helpico-osx-unsigned.tar.gz
-	    mv build/out/helpico-*.tar.gz build/out/helpico-*.dmg ../helpico-binaries/${VERSION}
+	    mv build/out/helpico-*-osx-unsigned.tar.gz inputs/helpicocore-osx-unsigned.tar.gz
+	    mv build/out/helpico-*.tar.gz build/out/helpicocore-*.dmg ../helpico-binaries/${VERSION}
 	fi
 	# AArch64
 	if [[ $aarch64 = true ]]
@@ -313,7 +313,7 @@ then
 	    echo ""
 	    ./bin/gbuild -j ${proc} -m ${mem} --commit helpico=${COMMIT} --url helpico=${url} ../helpico/contrib/gitian-descriptors/gitian-aarch64.yml
 	    ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../helpico/contrib/gitian-descriptors/gitian-aarch64.yml
-	    mv build/out/helpico-*.tar.gz build/out/src/helpico-*.tar.gz ../helpico-binaries/${VERSION}
+	    mv build/out/helpico-*.tar.gz build/out/src/helpicocore-*.tar.gz ../helpico-binaries/${VERSION}
 	fi
 	popd || exit
 
@@ -339,32 +339,32 @@ then
 	# Linux
 	pushd ./gitian-builder || exit
 	echo ""
-	echo "Verifying v${VERSION} Linux"
+	echo "Verifying ${VERSION} Linux"
 	echo ""
 	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../helpico/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
-	echo "Verifying v${VERSION} Windows"
+	echo "Verifying ${VERSION} Windows"
 	echo ""
 	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../helpico/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
-	echo "Verifying v${VERSION} Mac OSX"
+	echo "Verifying ${VERSION} Mac OSX"
 	echo ""
 	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../helpico/contrib/gitian-descriptors/gitian-osx.yml
 	# AArch64
 	echo ""
-	echo "Verifying v${VERSION} AArch64"
+	echo "Verifying ${VERSION} AArch64"
 	echo ""
 	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../helpico/contrib/gitian-descriptors/gitian-aarch64.yml
 	# Signed Windows
 	echo ""
-	echo "Verifying v${VERSION} Signed Windows"
+	echo "Verifying ${VERSION} Signed Windows"
 	echo ""
 	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../helpico/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
-	echo "Verifying v${VERSION} Signed Mac OSX"
+	echo "Verifying ${VERSION} Signed Mac OSX"
 	echo ""
 	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../helpico/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd || exit
