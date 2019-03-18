@@ -96,8 +96,8 @@ public:
         consensus.BIP34Hash = uint256S("0x000007d91d1254d60e2dd1ae580383070a4ddffa4c64c2eeb4a2f9ecc0414343");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
         consensus.nPowTargetTimespan = 20 * 60;
-        consensus.nPowTargetSpacing = 1.5 * 60;  // 1.5 min        
-        consensus.fPowAllowMinDifficultyBlocks = true;
+        consensus.nPowTargetSpacing = 10 * 60;  // 1.5 min        
+        consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
         consensus.nMinerConfirmationWindow = 2016;       // nPowTargetTimespan / nPowTargetSpacing
@@ -118,10 +118,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].nThreshold = 3226; // 80% of 4032
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000010101");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000002b28d3f96834581b");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000004e5f511b7966fddbcc0841e9587ff496b5efa0faa002bd8618ecf70563b");
+        consensus.defaultAssumeValid = uint256S("0x000000000000b653d81ee6a40b705ff5066546295867ad9854fe5355b81a756d");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
