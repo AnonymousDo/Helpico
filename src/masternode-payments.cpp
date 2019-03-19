@@ -130,7 +130,7 @@ bool IsBlockValueValid(const CBlock& block, int nBlockHeight, CAmount blockRewar
 }
 
 CAmount GetDevelopmentBudgetPayment(int nHeight, Consensus::Params params) {
-  if (nHeight <= 28100) {
+  if (nHeight < 28100) {
       return nHeight >= 50 ? 0.25 * GetBlockSubsidy(nHeight, params) : 0;
   } else {
       return nHeight >= 28100 ? 0.49 * GetBlockSubsidy(nHeight, params) : 0;
