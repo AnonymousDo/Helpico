@@ -14,7 +14,6 @@ Remove folders:
 Remove Files:
 - peers.dat
 - banlist.dat <br>
-===============================
 Download and unzip the bootstrap.dat file to the directory
 ```
 $ helpico-cli stop
