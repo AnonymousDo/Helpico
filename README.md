@@ -1,7 +1,7 @@
 Helpico Core 1.0.1
 ===============================
 
-Site:https://helpico.io/
+Site:https://helpico.io/ <br>
 Block explorer:https://helpico.tech/
 
 Bootstrap
@@ -14,6 +14,7 @@ Remove folders:
 Remove Files:
 - peers.dat
 - banlist.dat <br>
+===============================
 Download and unzip the bootstrap.dat file to the directory
 ```
 $ helpico-cli stop
