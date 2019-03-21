@@ -1,7 +1,8 @@
 Helpico Core 1.0.1
 ===============================
 
-https://helpico.io/
+Site:https://helpico.io/
+Block explorer:https://helpico.tech/
 
 Bootstrap
 ===============================
